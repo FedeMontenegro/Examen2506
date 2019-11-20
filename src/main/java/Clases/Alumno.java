@@ -14,35 +14,34 @@ import java.util.List;
 public class Alumno {
     
     private String nombre;
-    private List<TrabajoPractico> TrabajosPracticos;
-    private List<String>Respuestas;
+    private List<TrabajoPractico> trabajosPracticos;
+    private List<String>respuestas;
 
     public Alumno(String nombre) {
         this.nombre = nombre;
     }
     
-    public boolean RealizarTrabajoPractico(TrabajoPractico TrabajoPractico, List<String>Respuestas){
+    public boolean RealizarTrabajoPractico(TrabajoPractico trabajoPractico, List<String>respuestas){
+        
+        
         return true;
     }
     
-    /**/
-    public void sumarRespuestas(List<String>Respuestas){
+    public boolean trabajoAprobado(String tema){
         
-        int sumaRespuestas = 0;
-        Ejercicio ejercicio = null;
-        
-        for (int i = 0; i < Respuestas.size(); i++) {
-            if (ejercicio.resueltoCorrectamente(Respuestas.get(i))) {
-                sumaRespuestas += ejercicio.getPuntajeRespuestaCorrecta();
+        TrabajoPractico trabajoPractico = null;
+      
+        for (int i = 0; i < trabajosPracticos.size(); i++) {
+            
+            if (trabajoPractico.esDeTema(tema)) {
+                
+            if (trabajoPractico.estaAprobado(respuestas)) {
+                return true;
             }
         }
+        }
+        return false;
+        
     }
-    
-    /**Fede
-     */
-    public List<TrabajoPractico> getTrabajosPracticos(){
-        return TrabajosPracticos;
-    }
-    
-    
+
 }

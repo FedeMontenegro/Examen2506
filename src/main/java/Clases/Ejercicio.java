@@ -15,35 +15,38 @@ class Ejercicio {
     private String respuestaCorrecta;
     private float puntajeMaximo;
     
-    /**/
-    private float puntajeRespuestaCorrecta;
-
     public Ejercicio(String consigna, String respuestaCorrecta, float puntajeMaximo) {
         this.consigna = consigna;
         this.respuestaCorrecta = respuestaCorrecta;
         this.puntajeMaximo = puntajeMaximo;
     }
     
-    public boolean resueltoCorrectamente(String Respuesta){
-        return true;
+    public boolean resueltoCorrectamente(String respuesta){
+        if (respuesta.equals(respuestaCorrecta)) {
+            return true;
+        }
+        return false;
     }
     
-    public float corregirEjercicio(String Respuesta){
+    public float corregirEjercicio(String respuesta){
+        if (respuesta.equals(respuestaCorrecta)) {
+            return puntajeMaximo;
+        }
         return 0;
     }
 
     public float getPuntajeMaximo() {
         return puntajeMaximo;
-    }
-    
-    /**/
-    public float getPuntajeRespuestaCorrecta() {
-        return puntajeRespuestaCorrecta;
+        
+        
     }
     /**/
-    public void setPuntajeRespuestaCorrecta(float puntajeRespuestaCorrecta) {
-        this.puntajeRespuestaCorrecta = puntajeRespuestaCorrecta;
+    public String getRespuestaCorrecta() {
+        return respuestaCorrecta;
     }
-
     
+    
+    public boolean resueltoCorrectamente(String rta){
+        return this.corregirEjercicio(rta) = puntajeMaximo;
+    }
 }

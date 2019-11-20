@@ -14,8 +14,9 @@ import java.util.List;
 public class TrabajoPractico {
     
     private String tema;
-    protected List<Ejercicio> Ejercicios;
+    protected List<Ejercicio> ejercicios;
     private float puntajeDeAprobacion;
+    
 
     public TrabajoPractico(String tema, float puntajeDeAprobacion) {
         this.tema = tema;
@@ -23,26 +24,30 @@ public class TrabajoPractico {
     }
     
     public boolean addEjercicio(Ejercicio ejercicio){
+        
+        ejercicios.add(ejercicio);
         return true;
     }
     
-    public float corregirTrabajoPractico(List<String>Respuestas){
-        return 0;
+    public float corregirTrabajoPractico(List<String>respuestas){
+        
+        Ejercicio ejercicio = null;
+        int puntaje = 0;
+        
+        for (int i = 0; i < respuestas.size(); i++) {
+            //ejercicio.corregirEjercicio(respuestas.get(i));
+            puntaje += ejercicio.corregirEjercicio(respuestas.get(i));
+        }
+        return puntaje;
     }
     
-    public boolean estaAprobado(List<String>Respuestas){
+    public boolean estaAprobado(List<String>respuestas){
         
-        Alumno alumno = null;
-        
-        if (this.esDeTema(tema)) {
-            for (int i = 0; i < alumno.getTrabajosPracticos().size(); i++) {
-                for (int j = 0; j < Respuestas.size(); j++) {
-                    if (alumno.sumarRespuestas(Respuestas.get(i))<this.puntajeDeAprobacion) {
-                        
-                    }
-                }
-            }
+        if (corregirTrabajoPractico(respuestas)>= this.puntajeDeAprobacion) {
+            return true;
         }
+        return false;
+        
     }
 
     public String getTema() {
@@ -54,10 +59,11 @@ public class TrabajoPractico {
     }
 
     public List<Ejercicio> getEjercicios() {
-        return Ejercicios;
+        return ejercicios;
     }
     
     public boolean esDeTema(String tema){
         return this.tema.equals(tema);
     }
-}
+
+ }

@@ -20,7 +20,7 @@ public class Seminario {
         this.tema = tema;
     }
     
-    public boolean addRequisito(String Requisito){
+    public boolean addRequisito(String requisito){
         return true;
     }
     
