@@ -5,6 +5,8 @@
  */
 package Clases;
 
+import java.util.List;
+
 /**
  *
  * @author visita
@@ -26,6 +28,15 @@ public class TrabajoPracticoIntegrador extends TrabajoPractico {
         }
             super.ejercicios.add(ejercicio);
             return true;
+    }
+    
+    public boolean estaAprobado(List<String>respuestas){
+        
+        if (corregirTrabajoPractico(respuestas)> this.puntajeMinimoPorEjercicio && super.corregirTrabajoPractico(respuestas)>this.minimoejerciciosCorrectos) {
+            return true;
+        }
+        return false;
+        
     }
 
 }

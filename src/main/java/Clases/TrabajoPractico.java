@@ -5,6 +5,8 @@
  */
 package Clases;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -21,6 +23,7 @@ public class TrabajoPractico {
     public TrabajoPractico(String tema, float puntajeDeAprobacion) {
         this.tema = tema;
         this.puntajeDeAprobacion = puntajeDeAprobacion;
+        ejercicios = new ArrayList<>();
     }
     
     public boolean addEjercicio(Ejercicio ejercicio){
@@ -65,5 +68,19 @@ public class TrabajoPractico {
     public boolean esDeTema(String tema){
         return this.tema.equals(tema);
     }
+
+    @Override
+    public String toString() {
+        String resultado = "";
+        Iterator <Ejercicio> it = ejercicios.iterator();
+        while(it.hasNext()){
+            Ejercicio e = it.next();
+            resultado += e.toString() + " ";
+        }
+        return resultado;
+    }
+    
+    
+    
 
  }

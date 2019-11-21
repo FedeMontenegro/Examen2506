@@ -21,12 +21,12 @@ class Ejercicio {
         this.puntajeMaximo = puntajeMaximo;
     }
     
-    public boolean resueltoCorrectamente(String respuesta){
+   /* public boolean resueltoCorrectamente(String respuesta){
         if (respuesta.equals(respuestaCorrecta)) {
             return true;
         }
         return false;
-    }
+    }*/
     
     public float corregirEjercicio(String respuesta){
         if (respuesta.equals(respuestaCorrecta)) {
@@ -47,6 +47,13 @@ class Ejercicio {
     
     
     public boolean resueltoCorrectamente(String rta){
-        return this.corregirEjercicio(rta) = puntajeMaximo;
+        return this.corregirEjercicio(rta) == puntajeMaximo;
     }
+
+    @Override
+    public String toString() {
+        return consigna;
+    }
+    
+    
 }
